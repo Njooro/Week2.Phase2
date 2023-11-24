@@ -7,16 +7,14 @@ function BotCollection({ bots, addBot, deleteBot }) {
       <BotCard
         key={bot.id}
         bot={bot}
-        clickEvent={addBot}
+        clickEvent={() => addBot(bot.id)}
         deleteBot={deleteBot}
-       
       />
     );
   });
   return (
     <div className="container mt-4">
       <div className="row">
-      
         {botItem}
       </div>
     </div>

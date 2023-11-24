@@ -1,11 +1,13 @@
 
 import './App.css';
 import BotsPage from './components/Bots';
+import YourBotArmy from './components/YourBotArmy';
 function App() {
   return (
     <div className="App">
-      
-      <h1>Hello World</h1>
+     
+      <BotsPage />
+
     </div>
   );
 }

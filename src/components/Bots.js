@@ -3,40 +3,43 @@ import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
 
 function BotsPage() {
-  
   const [bots, setBots] = useState([]);
 
-  //fetch data from the server
+  // Fetch data from the server
   function fetchData() {
-    return fetch(`https://my-json-server.typicode.com/Njooro/Week2.Phase2/bots`)
+    return fetch(`https://vercel1-smoky.vercel.app/bots`)
       .then((resp) => resp.json())
       .then((data) => {
         setBots(data);
       });
   }
-  
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  //add bot to army when the bot is clicked
+  // Add bot to army when the bot is clicked
+  const addBot = (bot) => {
+    setBots((prevBots) =>
+      prevBots.map((b) => (b.id === bot.id ? { ...b, army: true } : b))
+    );
+  };
 
-  const addBot =(bot) => {
-    setBots(bots.map((b) => (b.id === bot.id ? { ...b, army: true } : b)));
-  }
-//remove bot
-  const removeBot =(bot) => {
-    setBots(bots.map((b) => (b.id === bot.id ? { ...b, army: false } : b)));
-  }
-//delete bot
+  // Remove bot
+  const removeBot = (bot) => {
+    setBots((prevBots) =>
+      prevBots.map((b) => (b.id === bot.id ? { ...b, army: false } : b))
+    );
+  };
+
+  // Delete bot
   const deleteBot = (bot) => {
-    const deletedBot = bots.filter((b) => b.id !== bot.id);
-    setBots((bots) => deletedBot);
-  }
+    const updatedBots = bots.filter((b) => b.id !== bot.id);
+    setBots(updatedBots);
+  };
+
   return (
     <div>
-      <YourBotArmy />
-      <BotCollection />
       <YourBotArmy
         bots={bots.filter((b) => b.army)}
         removeBot={removeBot}
