@@ -8,7 +8,7 @@ function BotsPage() {
 
   //fetch data from the server
   function fetchData() {
-    return fetch(`http://localhost:8002/bots`)
+    return fetch(`https://my-json-server.typicode.com/Njooro/Week2.Phase2/bots`)
       .then((resp) => resp.json())
       .then((data) => {
         setBots(data);

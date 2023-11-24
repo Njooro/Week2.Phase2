@@ -1,5 +1,5 @@
 import React from "react";
-import BotCard from "./BotCard";
+import BotCard from "./BotCard.js";
 
 function BotCollection({ bots, addBot, deleteBot }) {
   const botItem = bots.map((bot) => {

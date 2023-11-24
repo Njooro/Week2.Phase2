@@ -4,7 +4,8 @@ import BotsPage from './components/Bots';
 function App() {
   return (
     <div className="App">
-      <BotsPage />
+      
+      <h1>Hello World</h1>
     </div>
   );
 }

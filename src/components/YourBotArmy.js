@@ -1,4 +1,4 @@
-import BotCard from "./BotCard";
+import BotCard from "./BotCard.js";
 
 function YourBotArmy({ bots, removeBot, deleteBot }) {
   //your bot army code here...
